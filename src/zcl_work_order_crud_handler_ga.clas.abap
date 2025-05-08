@@ -33,7 +33,7 @@ CLASS zcl_work_order_crud_handler_ga IMPLEMENTATION.
 
         IF instancia_insert->validate_tech( ls_insert-technician_id ) EQ 1 AND instancia_insert->validate_customer( ls_insert-technician_id ) EQ 1.
             IF ls_insert-priority EQ 'A' OR ls_insert-priority EQ 'B'.
-                MODIFY ztworkorder_ga FROM @ls_insert.
+                INSERT ztworkorder_ga FROM @ls_insert.
             ELSE.
                 out->write( 'Prioridad no valida' ).
             ENDIF.
